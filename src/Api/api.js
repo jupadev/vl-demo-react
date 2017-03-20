@@ -86,7 +86,7 @@ export const test = (login, password) => {
     {
       headers: getAuthHeaders(),
       credentials: "same-origin",
-      method: "get",
+      method: "GET",
       body: JSON.stringify({})
     })
     .then(checkStatus)

@@ -11,7 +11,7 @@ class LoginPage extends Component {
   }
 
   handleLogin() {
-    this.props.onLoginClick('admin@bmcc.com', 'program');
+    this.props.onLoginClick('jhonlco@yopmail.com', 'program');
   }
 
   render() {
