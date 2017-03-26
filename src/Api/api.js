@@ -1,25 +1,7 @@
-import Localcache from '../utils/localcache';
-import { toISOString } from '../utils/helpers';
-import { HmacSHA1 } from 'crypto-js';
+import * as requestHelper from '../utils/request';
 
 const LOGIN_API = 'actors/login';
-
-
-function getAuthHeaders() {
-  const authtoken = Localcache.get('authtoken');
-  const secret = Localcache.get('secret');
-
-  const timeStamp = toISOString(new Date());
-  const hash = HmacSHA1(timeStamp, secret).toString();
-
-  return {
-    'Accept': 'application/json',
-    'Content-Type': 'application/json',
-    'x-authtoken': authtoken,
-    'x-signature': hash,
-    'x-request-timestamp': timeStamp
-  };
-};
+const ACTOR_API = 'actors/';
 
 
 /**
@@ -38,20 +20,6 @@ function checkStatus(response) {
 }
 
 /**
-* Description [given a login response it will be use to store on the session storage]
-* @params { Object } response
-*/
-function storeAuthtoken(response) {
-  const { auth, actor: { '_id': userId } } = response;
-  Localcache.set('authtoken', auth.authtoken);
-  Localcache.set('secret', auth.secret);
-  Localcache.set('userId', userId);
-  Localcache.set('login', new Date());
-  test();
-  return response;
-}
-
-/**
 * Description [Login providing email and password]
 * @params { String } login
 * @params { String } password
@@ -60,31 +28,24 @@ function storeAuthtoken(response) {
 export const login = (login, password) => {
   return fetch(LOGIN_API,
     {
-      headers: {
-        'Accept': 'application/json',
-        "Content-Type": "application/json"
-      },
+      headers: requestHelper.getHeaders(),
       credentials: "same-origin",
       method: "POST",
       body: JSON.stringify({ login, password })
     })
     .then(checkStatus)
     .then(response => response.json())
-    .then(storeAuthtoken);
+    .then(requestHelper.setAuthtoken);
 };
 
-
-
-export const test = (login, password) => {
-  return fetch('v2/entities/jobs?&$filter=%7B%7D&$limit=10&$group=status&$inlinecount=true',
+export const loadUser = (userId) => {
+  return fetch(`${ACTOR_API}${userId}`,
     {
-      headers: getAuthHeaders(),
+      headers: requestHelper.getHeaders(),
       credentials: "same-origin",
       method: "GET"
     })
     .then(checkStatus)
-    .then(response => response.json())
-    .then(function(response) {
-      console.log('Response->', response);
-    });
+    .then(response => response.json());
 };
+

@@ -9,7 +9,9 @@ const configureStore = () => {
   const middlewares = [reduxThunk];
   return {
     ...createStore(rootReducer,
-      applyMiddleware(...middlewares))
+      window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
+      applyMiddleware(...middlewares)
+    )
   };
 };
 
