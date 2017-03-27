@@ -1,0 +1,10 @@
+.header {
+  background: #000;
+  color: #ddd;
+}
+
+.header .header__link {
+  color: #ddd;
+  text-decoration: none;
+  padding: 0 5px;
+}

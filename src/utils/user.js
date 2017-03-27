@@ -10,13 +10,16 @@ function getRepositoryRoles(user) {
   });
   return roles;
 }
+
 export function getRoles(user) {
   let roles = [];
   if (!isEmpty(user) && isObject(user)) {
     if (isObject(user.repository)) {
       roles = getRepositoryRoles(user);
+    } else if (isObject(user.role)) {
+      roles.push(user.role._id);
     } else if (!isEmpty(user.role)) {
-      roles.push(user.role)
+      roles.push(user.role);
     }
   }
   return roles;
