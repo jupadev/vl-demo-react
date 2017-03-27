@@ -16,9 +16,9 @@ class Header extends Component {
   render() {
     const guestUsers = (
       <nav className="mdl-navigation">
-        <NavLink to="/" className="mdl-navigation__link" activeClassName="active">Home</NavLink>
+        <NavLink to="/" className="header__link" activeClassName="active">Home</NavLink>
         {" | "}
-        <NavLink to="login" className="mdl-navigation__link" activeClassName="active">Login</NavLink>
+        <NavLink to="login" className="header__link" activeClassName="active">Login</NavLink>
       </nav>
     );
 

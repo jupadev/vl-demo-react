@@ -13,7 +13,7 @@ import Authorization from './components/Authorization';
 
 const StudentAllowed = Authorization(['student']);
 const EmployerAllowed = Authorization(['employer']);
-const AdminAllowed = Authorization(['admin']);
+const AdminAllowed = Authorization(['admin', 'superadmin']);
 
 export default (
   <Router>
