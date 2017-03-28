@@ -1,11 +1,13 @@
 import * as types from './actionTypes';
+import { filterActions } from 'redux-ignore';
+
 const initialState = {
   user: null,
   isLoging: false,
   isAuthenticated: false
 };
 
-export default function (state = initialState, action) {
+const reducer = function (state = initialState, action) {
   switch (action.type) {
     case types.LOGIN_REQUEST:
       return {...state, user: null, isLoging: true, isAuthenticated: false};
@@ -19,3 +21,6 @@ export default function (state = initialState, action) {
       return state;
   }
 }
+
+
+export default filterActions(reducer, (action) => action.type.match(/^LOGIN_|^LOGOUT_/));

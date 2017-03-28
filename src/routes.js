@@ -11,7 +11,7 @@ import AdminPage from './containers/Admin/AdminDashboard';
 import NotFoundPage from './containers/NotFound/NotFoundPage';
 import Authorization from './components/Authorization';
 
-const StudentAllowed = Authorization(['student']);
+const StudentAllowed = Authorization(['member']);
 const EmployerAllowed = Authorization(['employer']);
 const AdminAllowed = Authorization(['admin', 'superadmin']);
 
