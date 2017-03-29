@@ -5,6 +5,7 @@
  *
  */
 
-export Authorization from './Authorization';
-export PrivateRoute from './PrivateRoute';
+export {Authorization} from './Authorization';
+export {PrivateRoute} from './PrivateRoute';
+export {Tabs} from './Tabs/Tabs';
 

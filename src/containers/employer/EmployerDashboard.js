@@ -1,23 +1,11 @@
 import React from 'react';
-import {Tabs, Tab} from 'material-ui/Tabs';
-import './styles/tabs.css';
-
-const width = {
-  width: '120px',
-  padding: '0 10px'
-}
+import {Tab} from 'material-ui/Tabs';
+import Tabs from '../../components/Tabs';
 
 const EmployerDashboard = () => (
-  <div className="">
-    <div className="">
-      <div className="tabs-container"></div>
-      <Tabs className="" 
-        contentContainerClassName="" 
-        inkBarStyle={{background: '#7ed321', width:'120px', height: 2}}
-        tabItemContainerStyle={{width: 480, background: '#3c3d41'}}
-        >
-        <Tab label="dashboard" style={width} className="tabs">
-          <div className="style100">
+      <Tabs>
+        <Tab label="dashboard">
+          <div>
             <h2>DASHBOARD</h2>
             <p>
               This is an example tab.
@@ -27,9 +15,7 @@ const EmployerDashboard = () => (
             </p>
           </div>
         </Tab>
-        <Tab label="jobs" 
-          style={width}
-        >
+        <Tab label="jobs">
           <div>
             <h2>JOBS</h2>
             <p>
@@ -37,7 +23,7 @@ const EmployerDashboard = () => (
             </p>
           </div>
         </Tab>
-        <Tab label="candidates" style={width}>
+        <Tab label="candidates">
           <div>
             <h2>CANDIDATES</h2>
             <p>
@@ -45,7 +31,7 @@ const EmployerDashboard = () => (
             </p>
           </div>
         </Tab>
-        <Tab label="pipelines" style={width} >
+        <Tab label="pipelines">
           <div>
             <h2>PIPELINES</h2>
             <p>
@@ -54,9 +40,6 @@ const EmployerDashboard = () => (
           </div>
         </Tab>
       </Tabs>
-    </div>
-
-  </div>
 );
 
 export default EmployerDashboard;

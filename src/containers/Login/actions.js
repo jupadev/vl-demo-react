@@ -19,7 +19,7 @@ export const onLogoutAction = () => {
   }
 };
 
-export const loadUser = (userId) => {
+export const loadUser = userId => {
   return (dispatch) => {
     dispatch({type: types.LOGIN_REQUEST});
     api.loadUser(userId)

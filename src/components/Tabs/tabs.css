@@ -1,0 +1,17 @@
+.tabs-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: -70px;
+  height: 48px;
+  background: #3c3d41;
+  z-index: -1;
+}
+
+.tab {
+	margin-left: 10px !important;
+}
+
+.tab-container {
+	margin: 0 70px;
+}
