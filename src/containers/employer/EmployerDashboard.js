@@ -1,6 +1,7 @@
 import React from 'react';
 import {Tab} from 'material-ui/Tabs';
 import Tabs from '../../components/Tabs';
+import EmployerJobs from './EmployerJobs/EmployerJobs';
 
 const EmployerDashboard = () => (
       <Tabs>
@@ -16,12 +17,7 @@ const EmployerDashboard = () => (
           </div>
         </Tab>
         <Tab label="jobs">
-          <div>
-            <h2>JOBS</h2>
-            <p>
-              This is another example tab.
-            </p>
-          </div>
+          <EmployerJobs />
         </Tab>
         <Tab label="candidates">
           <div>

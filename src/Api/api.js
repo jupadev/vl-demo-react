@@ -2,6 +2,8 @@ import * as requestHelper from '../utils/request';
 
 const LOGIN_API = 'actors/login';
 const ACTOR_API = 'actors/';
+const COLLEGE_API = 'repository/';
+const V2_API = 'v2/';
 
 
 /**
@@ -44,6 +46,61 @@ export const loadUser = (userId) => {
       headers: requestHelper.getHeaders(),
       credentials: "same-origin",
       method: "GET"
+    })
+    .then(checkStatus)
+    .then(response => response.json());
+};
+
+export const getEntities = (entity, payload) => {
+  return fetch(`${V2_API}entities/${entity}`,
+    {
+      headers: requestHelper.getHeaders(),
+      credentials: "same-origin",
+      method: "GET"
+    })
+    .then(checkStatus)
+    .then(response => response.json());
+};
+
+export const getEntity = (entity, id) => {
+  return fetch(`${V2_API}entities/${entity}/${id}`,
+    {
+      headers: requestHelper.getHeaders(),
+      credentials: "same-origin",
+      method: "GET"
+    })
+    .then(checkStatus)
+    .then(response => response.json());
+};
+
+export const updateEntity = (entity, payload) => {
+  return fetch(`${V2_API}entities/${entity}/${payload._id}`,
+    {
+      headers: requestHelper.getHeaders(),
+      credentials: "same-origin",
+      method: "PUT"
+    })
+    .then(checkStatus)
+    .then(response => response.json());
+};
+
+export const removeEntity = (entity, payload) => {
+  return fetch(`${V2_API}entities/${entity}/${payload._id}`,
+    {
+      headers: requestHelper.getHeaders(),
+      credentials: "same-origin",
+      method: "DELETE"
+    })
+    .then(checkStatus)
+    .then(response => response.json());
+};
+
+export const insertEntity = (entity, payload) => {
+  return fetch(`${V2_API}entities/${entity}`,
+    {
+      headers: requestHelper.getHeaders(),
+      credentials: "same-origin",
+      method: "POST"
     })
     .then(checkStatus)
     .then(response => response.json());
