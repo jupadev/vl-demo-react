@@ -23,4 +23,22 @@ export function getRoles(user) {
     }
   }
   return roles;
+};
+
+//export getRoles;
+
+export function getUserRoute(user) {
+  const roles  = getRoles(user) || [];
+  switch(roles[0]) {
+    case 'employer':
+      return '/employer'
+    case 'member':
+    case 'student':
+      return '/student'
+    case 'admin':
+    case 'superadmin':
+      return '/admin'
+    default:
+      return '/home';
+  }
 }

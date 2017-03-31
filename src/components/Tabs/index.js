@@ -9,10 +9,10 @@ const Tabs = (props) => {
     <TabsMUI className="" 
       contentContainerClassName="tab-container" 
       inkBarStyle={{background: '#7ed321', width:'120px', marginLeft: '70px'}}
-      tabItemContainerStyle={{width: 480, background: '#3c3d41', marginLeft: '70px'}}
+      tabItemContainerStyle={{width: 120 * props.children.length, background: '#3c3d41', marginLeft: '70px'}}
       >
         {props.children}
-    </TabsMUI>}
+    </TabsMUI>
   </div>)
 }
 

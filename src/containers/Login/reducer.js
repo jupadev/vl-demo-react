@@ -4,7 +4,8 @@ import { filterActions } from 'redux-ignore';
 const initialState = {
   user: null,
   isLoging: false,
-  isAuthenticated: false
+  isAuthenticated: false,
+  needRedirect: true
 };
 
 const reducer = function (state = initialState, action) {
@@ -12,11 +13,11 @@ const reducer = function (state = initialState, action) {
     case types.LOGIN_REQUEST:
       return {...state, user: null, isLoging: true, isAuthenticated: false};
     case types.LOGIN_SUCCESS:
-    case types.LOAD_SUCCESS:
       return {...state, user: action.payload, isLoging: false, isAuthenticated: true};
     case types.LOGIN_ERROR:
-    case types.LOGOUT_SUCCESS:
       return { ...state, user: null, isLoging: false, isAuthenticated: false};
+    case types.LOGOUT_SUCCESS:
+      return { ...state, user: null, isLoging: false, isAuthenticated: false, needRedirect: false};
     default:
       return state;
   }

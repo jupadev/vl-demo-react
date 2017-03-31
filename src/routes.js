@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
-import PrivateRoute from './components/PrivateRoute';
+import {PrivateRoute, Authorization} from './components';
 import App from './containers/App/App';
 import HomePage from './containers/HomePage/HomePage';
 import LoginPage from './containers/Login/LoginPage';
@@ -9,7 +9,6 @@ import StudentPage from './containers/Student/StudentDashboard';
 import EmployerPage from './containers/Employer/EmployerDashboard';
 import AdminPage from './containers/Admin/AdminDashboard';
 import NotFoundPage from './containers/NotFound/NotFoundPage';
-import Authorization from './components/Authorization';
 
 const StudentAllowed = Authorization(['member']);
 const EmployerAllowed = Authorization(['employer']);

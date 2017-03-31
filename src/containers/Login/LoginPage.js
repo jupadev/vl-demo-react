@@ -3,18 +3,21 @@ import { connect } from 'react-redux';
 import { Redirect} from 'react-router-dom';
 import { onLoginAction } from './actions';
 import LoginForm from './components/LoginForm';
+import { getUserRoute } from '../../utils/user';
 
 
 class LoginPage extends React.Component {
   render() {
     const { from } = this.props.location.state || { from: { pathname: '/' } };
-    const { isAuthenticated } = this.props;
+    const { pathname } = from;
+    const { isAuthenticated, user, needRedirect } = this.props;
     if (isAuthenticated) {
-      if (from && from.pathname !== '/login' && from.pathname !== '/') {
+      if (needRedirect && pathname !== '/login' && pathname !== '/') {
         return (<Redirect to={from}/>);
       } else {
+        const userRoute = getUserRoute(user);
         return (<Redirect to={{
-          pathname: '/student'
+          pathname: userRoute
         }}/>);
       }
     }

@@ -5,7 +5,13 @@
  *
  */
 
-export {Authorization} from './Authorization';
-export {PrivateRoute} from './PrivateRoute';
-export {Tabs} from './Tabs/Tabs';
+import Authorization from './Authorization';
+import PrivateRoute from './PrivateRoute';
+import Tabs from './Tabs';
+
+export { 
+  Authorization,
+  PrivateRoute,
+  Tabs
+};
 
