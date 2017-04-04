@@ -48,7 +48,7 @@ class Header extends Component {
 }
 
 
-const mapStateToProp = ({auth}) => {
+export const mapStateToProp = ({auth}) => {
   return auth;
 }
 
