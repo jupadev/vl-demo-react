@@ -4,10 +4,12 @@ import { connect } from 'react-redux';
 
 class PrivateRoute extends Component {  
   render() {
-    const { isAuthenticated, user, component, needRedirect, ...rest } = this.props;
+    const { isAuthenticated, component, needRedirect, isLoging,...rest } = this.props;
     return (<Route {...rest} render={(props) => {
         if (isAuthenticated) {
-          return React.createElement(component, Object.assign(props, {user}));
+          return React.createElement(component, Object.assign(props, {...rest}));
+        } else if (isLoging) {
+          return <div>Loading...</div>
         } else {
           return (<Redirect to={{
             pathname: '/login',
@@ -24,6 +26,7 @@ function mapStateToProps({ auth }) {
   return { 
     needRedirect: auth.needRedirect,
     isAuthenticated: auth.isAuthenticated,
+    isLoging: auth.isLoging,
     user: auth.user
   };
 }

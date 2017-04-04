@@ -1,10 +1,10 @@
 import * as requestHelper from '../utils/request';
 
-const LOGIN_API = 'actors/login';
-const ACTOR_API = 'actors/';
-const COLLEGE_API = 'repository/';
-const V2_API = 'v2/';
-
+const BASE = 'http://localhost:3000/'
+const LOGIN_API = `${BASE}actors/login`;
+const ACTOR_API = `${BASE}actors/`;
+const COLLEGE_API = `${BASE}repository/`;
+const V2_API = `${BASE}v2/`;
 
 /**
 * Description [given a login response it will be use to store on the session storage]

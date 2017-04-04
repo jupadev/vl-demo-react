@@ -7,7 +7,7 @@ const JobsList = ({jobs}) => {
   const items = jobs.map(job => {
     return (<Card key={job._id}>
       <CardTitle title={job.title} subtitle={job.industry.name}/>
-      <CardText style={{'height': 200,'overflow-y': 'hidden'}}>
+      <CardText style={{'height': 200,'overflowY': 'hidden'}}>
         <div dangerouslySetInnerHTML={{__html: job.description.replace(/(?:\\r\\n|\\r|\\n)/g, '<br/>')}}>
         </div>
       </CardText>

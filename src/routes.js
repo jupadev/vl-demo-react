@@ -22,6 +22,9 @@ export default (
         <Route exact path="/login" component={LoginPage} />
         <PrivateRoute exact path="/student" component={StudentAllowed(StudentPage)}/>
         <PrivateRoute exact path="/employer" component={EmployerAllowed(EmployerPage)}/>
+        <PrivateRoute exact path="/employer/jobs" initialSelectedIndex={1} component={EmployerAllowed(EmployerPage)}/>
+        <PrivateRoute exact path="/employer/candidates" initialSelectedIndex={2} component={EmployerAllowed(EmployerPage)}/>
+        <PrivateRoute exact path="/employer/pipelines"  initialSelectedIndex={3} component={EmployerAllowed(EmployerPage)}/>
         <PrivateRoute exact path="/admin" component={AdminAllowed(AdminPage)}/>
         <Route component={NotFoundPage} />
       </Switch>

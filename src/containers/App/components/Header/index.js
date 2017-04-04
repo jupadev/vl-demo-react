@@ -14,6 +14,7 @@ class Header extends Component {
 
 
   render() {
+    console.log('header render');
     const guestUsers = (
       <nav className="mdl-navigation">
         <NavLink to="/" className="header__link" activeClassName="active">Home</NavLink>
