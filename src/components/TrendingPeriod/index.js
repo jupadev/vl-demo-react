@@ -6,20 +6,22 @@ import TrendItem from './components/TrendItem';
 
 const TrendingPeriod = (props) => {
   const {className, style, data} = props;
-  return <Paper zDepth={1} className={className} style={style}>
-    <PeriodDropdown style={{width:'100%'}} onChange={props.onChange}/>
-    <div>
-    {
-      (data && data.length > 0)?
-        data.map((item, index) => {
-          return <TrendItem key={index} data={item}/>
-        })
-      :
-        <span>there are not any trend</span>
-    }
-    </div>
+  const isNotEmpty = data && data.length > 0;
+  const list =  isNotEmpty ? data.map((item, index) => <TrendItem key={index} data={item}/>) : [];
 
-  </Paper>
+  return (
+    <Paper zDepth={1} className={className} style={style}>
+      <PeriodDropdown style={{width:'100%'}} onChange={props.onChange}/>
+      <div>
+      {
+        isNotEmpty?
+          list
+          :
+          <span>There are not any trend</span>
+      }
+      </div>
+    </Paper>
+  )
 }
 
 export default TrendingPeriod;

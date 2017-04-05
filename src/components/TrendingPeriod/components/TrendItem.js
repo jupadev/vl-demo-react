@@ -22,7 +22,7 @@ const TrendItem = (props) => {
     };
 
     return <div className="container">
-      <span className="count">{count}</span><span className="label">{label}</span> <img src={url} alt={imgAlt} className="trend"/>
+      <span className="count">{count}</span><span className="label">{label}</span> <img src={url} alt={imgAlt}/>
     </div>
   
 }

@@ -1,12 +1,10 @@
 import React, {Component}from 'react';
 import {Tab} from 'material-ui/Tabs';
 import Tabs from '../../components/Tabs';
+import Dashboard from './EmployerTalentMap/EmployerTalentMap';
 import EmployerJobs from './EmployerJobs/EmployerJobs';
-import TalentMapLayout from './EmployerTalentMap/EmployerTalentMap';
 
-const Loading = () => (<div>Loading...</div>);
-
-class EmployerDashboard extends Component {
+class EmployerLayout extends Component {
     constructor() {
       super();
       this.onChange = this.onChange.bind(this);
@@ -25,6 +23,9 @@ class EmployerDashboard extends Component {
       switch (value) {
         case "/employer/jobs":
           return this.setState({renderTab: 'jobs'});
+        case "/employer":
+        case "/employer/":
+          return this.setState({renderTab: 'dashboard'});
         default:
           return;
       }
@@ -33,19 +34,16 @@ class EmployerDashboard extends Component {
     render() {
       return <Tabs onChange={this.onChange} initialSelectedIndex={this.props.initialSelectedIndex}>
         <Tab label="dashboard" value="">
-          <TalentMapLayout />
+          {this.state.renderTab === 'dashboard' ? <Dashboard /> : null}
         </Tab>
         <Tab label="jobs" value="jobs">
-          {this.state.renderTab === 'jobs' ? <EmployerJobs /> : <Loading />}
+          {this.state.renderTab === 'jobs' ? <EmployerJobs /> : null}
         </Tab>
         <Tab label="candidates" value="candidates">
           <div>
             <h2>Candidate</h2>
             <p>
-              This is an example tab.
-            </p>
-            <p>
-              You can put any sort of HTML or react component in here. It even keeps the component state!
+              It will be available soon!
             </p>
           </div>
         </Tab>
@@ -53,7 +51,7 @@ class EmployerDashboard extends Component {
           <div>
             <h2>PIPELINES</h2>
             <p>
-              This is a third example tab.
+              It will be available soon!
             </p>
           </div>
         </Tab>
@@ -62,4 +60,4 @@ class EmployerDashboard extends Component {
       
 }
 
-export default EmployerDashboard;
+export default EmployerLayout;

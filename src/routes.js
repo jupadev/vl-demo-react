@@ -6,7 +6,7 @@ import App from './containers/App/App';
 import HomePage from './containers/HomePage/HomePage';
 import LoginPage from './containers/Login/LoginPage';
 import StudentPage from './containers/Student/StudentDashboard';
-import EmployerPage from './containers/Employer/EmployerDashboard';
+import EmployerPage from './containers/Employer/EmployerLayout';
 import AdminPage from './containers/Admin/AdminDashboard';
 import NotFoundPage from './containers/NotFound/NotFoundPage';
 
