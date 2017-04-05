@@ -1,5 +1,6 @@
 import React from 'react';
 import Paper from 'material-ui/Paper';
+import TrendingSection  from './TrendingSection';
 
 const TalentMapLayout = () => {
   return <section>
@@ -8,7 +9,7 @@ const TalentMapLayout = () => {
         <Paper zDepth={1} style={{height:'500px'}}>Talent Map</Paper>
       </article>
       <section className="mdl-cell mdl-cell--4-col">
-        <Paper zDepth={1} className="mdl-cell mdl-cell--12-col" style={{height:'300px'}}>statistics</Paper>
+        <TrendingSection />
         <Paper zDepth={1} className="mdl-cell mdl-cell--12-col" style={{height:'200px'}}>college data</Paper>
       </section>
     </div>

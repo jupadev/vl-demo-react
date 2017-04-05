@@ -1,0 +1,21 @@
+.container {
+  padding: 0 24px 10px 24px;
+  display: flex;
+  flex-direction: row;
+}
+
+.count {
+  flex: 1 0;
+  padding-left: 20px;
+  font-size: 28px;
+  line-height: 1;
+}
+
+.label {
+  font-size: 13px;
+  flex: 3 0;
+}
+
+.trend {
+  
+}

@@ -8,10 +8,12 @@
 import Authorization from './Authorization';
 import PrivateRoute from './PrivateRoute';
 import Tabs from './Tabs';
+import TrendingPeriod from './TrendingPeriod';
 
 export { 
   Authorization,
   PrivateRoute,
-  Tabs
+  Tabs,
+  TrendingPeriod
 };
 
