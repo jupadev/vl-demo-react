@@ -1,12 +1,25 @@
 import React from 'react';
 import Paper from 'material-ui/Paper';
+import TableauReport from 'tableau-react';
 import TrendingSection  from './TrendingSection';
+import './styles/talentMap2.css';
 
+const tableauOptions = {
+  height: 490,
+  width: '100%',
+  hideTabs: false
+};
 const TalentMapLayout = () => {
   return <section>
     <div className="mdl-grid">
       <article className="mdl-cell mdl-cell--8-col">
-        <Paper zDepth={1} style={{height:'500px'}}>Talent Map</Paper>
+        <Paper zDepth={1} style={{height:'536px'}}>
+          <header className="dashboard-title">TALENT MAP</header>
+          <TableauReport
+            url="https://public.tableau.com/views/SuperStoreAPIExample/LinksDemo?:embed=y&:display_count=yes"
+            options={tableauOptions}
+          />
+        </Paper>
       </article>
       <section className="mdl-cell mdl-cell--4-col">
         <TrendingSection />

@@ -39,7 +39,7 @@ class TrendingSection extends Component {
     return <TrendingPeriod 
       onChange= {this.onChange}
       className="mdl-cell mdl-cell--12-col" 
-      style={{height:'300px'}}
+      style={{height:'320px', marginTop: '0'}}
       data={this.state.data}
     />
   }
